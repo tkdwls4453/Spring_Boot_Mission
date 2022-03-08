@@ -1,0 +1,17 @@
+spring:
+    config:
+      activate:
+        on-profile: mysql
+    datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/mission_jpa_schema
+      username: mission_jpa
+      password: asLK1209_
+    jpa:
+      hibernate:
+        ddl-auto: create
+      show-sql: false
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.MySQL8Dialect
+#
