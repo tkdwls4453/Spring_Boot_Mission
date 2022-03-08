@@ -69,7 +69,7 @@ public class PostDao {
         Optional<PostEntity> targetEntity = this.postRepository.findById(id);
         if (targetEntity.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-        } else if (!Objects.equals(this.boardRepository.findById(boardId).get(), targetEntity.get())) {
+        } else if (!Objects.equals(targetEntity.get().getBoardEntity().getId(),boardId)) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
         PostEntity postEntity = targetEntity.get();
@@ -87,7 +87,7 @@ public class PostDao {
         Optional<PostEntity> targetEntity = this.postRepository.findById(id);
         if (targetEntity.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-        } else if (!Objects.equals(this.boardRepository.findById(boardId).get(), targetEntity.get())) {
+        } else if (!Objects.equals(targetEntity.get().getBoardEntity().getId(),boardId)) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
         this.postRepository.delete(targetEntity.get());
